@@ -51,8 +51,9 @@
 
       var riotTag = this
       var formElement = event.target
-      fetch(window.getAPIUrl('/signup'), {
+      fetch(window.getAPIUrl('/signup/'), {
         method: 'POST',
+        credentials: 'include',
         body: new FormData(formElement)
       }).then(function(response) {
         if (response.status==200){

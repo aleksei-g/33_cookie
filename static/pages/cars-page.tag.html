@@ -16,11 +16,13 @@
     var riotTag = this
 
     function fetchCars(){
-      fetch(window.getAPIUrl('/cars')).then(function(response) {
+      fetch(window.getAPIUrl('/cars/'), {
+        credentials: 'include',
+      }).then(function(response) {
         if (response.status==200){
           return response.json()
         } else if (response.status==403){
-          window.go2page('/signup')
+          window.go2page('/signup/')
         } else if (response.status==500){
           alert('Упс, что-то пошло не так. Ошибка на сервере')
         }
